@@ -14,7 +14,7 @@ This tool implements `proxyd`, an RPC request router and proxy. It does the foll
 
 ## Usage
 
-Run `make proxyd` to build the binary. No additional dependencies are necessary.
+Run `make proxyd` to build the binary executable. No additional dependencies are necessary.
 
 To configure `proxyd` for use, you'll need to create a configuration file to define your proxy backends and routing rules.  Check out [example.config.toml](./example.config.toml) for how to do this alongside a full list of all options with commentary.
 
@@ -73,7 +73,7 @@ The following request methods are rewritten:
 * `eth_getUncleByBlockNumberAndIndex`
 * `debug_getRawReceipts`
 
-And `eth_blockNumber` response is overridden with current block consensus.
+Additionally, the `eth_blockNumber` response is overridden with the current block consensus.
 
 
 ## Cacheable methods
@@ -95,7 +95,7 @@ To support backends with different specifications in the same backend group,
 proxyd exposes a convenient method to fetch receipts abstracting away
 what specific backend will serve the request.
 
-Each backend specifies their preferred method to fetch receipts with `consensus_receipts_target` config,
+Each backend specifies its preferred method to fetch receipts with the `consensus_receipts_target` configuration,
 which will be translated from `consensus_getReceipts`.
 
 This method takes a `blockNumberOrHash` (i.e. `tag|qty|hash`)
